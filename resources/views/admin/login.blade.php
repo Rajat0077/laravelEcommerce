@@ -74,7 +74,7 @@
 					<form class="form-horizontal" action="{{url('/admin-dashboard')}}" method="">
 						{{@csrf_field()}} 
 					<fieldset>
-							<input type="hidden" name="_method" value="PATCH">
+							<input type="hidden" name="_method" value="POST">
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
 								<input class="input-large span10" name="admin_email" id="username" type="email" placeholder="type Email"/>
