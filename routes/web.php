@@ -19,8 +19,9 @@
 // });
 
 
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
 
+Route::get('/' , 'AdminController@login'); 
 
 Route::get('/admin' , 'AdminController@index'); // Here Admin Dashboard Is Open
 
@@ -39,3 +40,11 @@ Route::get('/save-category', 'CategoryController@save_category');
 Route::get('/unactive_category/{unactive_id}', 'CategoryController@unactive_category');  
 
 Route::get('/inactive_category/{inactive_id}', 'CategoryController@inactive_category');  
+
+Route::get('/edit_category/{category_id}', 'CategoryController@edit_category');  
+
+//Route::get('edit_category/{course_id}', 'CategoryController@edit_category');   // Here No Categorie Called 
+									
+// Route::get('/edit_category/{course_id}', [
+//     'as' => 'edit_category', 'uses' => 'CategoryController@edit_category'
+// ]);

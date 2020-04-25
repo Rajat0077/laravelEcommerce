@@ -141,4 +141,11 @@ class CategoryController extends Controller
                     return Redirect::to('/all-category');
 
     }
+
+
+    public function edit_category($category_id){    
+      //return $category_id;
+      $category_idd = $category_id;
+      return view('admin/edit_category' , compact('category_idd')) ;
+    }
 }
