@@ -1,0 +1,1 @@
+{{$category_info ->category_id }}

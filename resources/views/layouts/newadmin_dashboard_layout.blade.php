@@ -354,20 +354,22 @@
 						<li><a href="{{URL::to('admin')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<li><a href="{{URL::to('all-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> All Category</span></a></li>
 						<li><a href="{{URL::to('add-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> Add Category</span></a></li>
-						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> All Brands</span></a></li>
-						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> Add Brands</span></a></li>
+						<li><a href="{{URL::to('all-manufacture')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> All Manufactures </span></a></li>
+						<li><a href="{{URL::to('add-manufacture')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Add Manufacture</span></a></li>
 						
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products </span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">  Products </span><span class="label label-important"> 3 </span></a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Products </span></a></li>
+								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Products1 </span></a></li>
 								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products </span></a></li>
 								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
-						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link </span></a></li>
-						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
+						<li><a href="{{URL::to('add_product')}}"><i class="icon-edit"></i><span class="hidden-tablet"> Add Products  </span></a></li>
+						<li><a href="{{URL::to('all_product')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> All Products </span></a></li>
+						<li><a href="{{URL::to('test_case')}}"><i class="icon-edit"></i><span class="hidden-tablet"> Test Case </span></a></li>
+						<li><a href="{{URL::to('add_slider')}}"><i class="icon-font"></i><span class="hidden-tablet"> Add Slider </span></a></li>
+						<li><a href="{{URL::to('all_slider')}}"><i class="icon-font"></i><span class="hidden-tablet"> ALL Slider </span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
 						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
 						<li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
@@ -460,5 +462,19 @@
 <script src="{{asset('backend/js/counter.js')}}"></script>
 <script src="{{asset('backend/js/retina.js')}}"></script>
 <script src="{{asset('backend/js/custom.js')}}"></script>	
+
+<script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')}}"></script>
+<script>
+	$(document).on('click',"#delete" , function(e){
+		e.preventDefault();
+	var link = $(this).attr("href");
+	bootbox.confirm("Are You Sure Delete", function(confirmed){
+		if(confirmed){
+			window.location.href = link;
+		}
+	});
+	});
+</script>
+
 </body>
 </html>

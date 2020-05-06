@@ -14,7 +14,18 @@
 				<li><a href="#">Tables</a></li>
 			</ul>
 
-			<div class="row-fluid sortable">		
+			<div class="row-fluid sortable">	
+				
+				<?php 
+				$message = Session::get('message');
+
+				if(isset($message)){
+				
+				echo $message;   // This is not Working Fine ...
+				Session::put('message' , null);	
+				
+				}				
+				?>	
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>Members</h2>
@@ -60,10 +71,8 @@
 									<a class="btn btn-info" href="{{URL::to('/edit_category/' . $cat->category_id)}}">
 										<i class="halflings-icon white edit"></i>  
 									</a>		
-
 								
-
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger" href="{{URL::to('/delete_category/' . $cat->category_id)}}" id="delete">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

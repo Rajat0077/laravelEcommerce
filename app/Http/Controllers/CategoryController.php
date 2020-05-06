@@ -144,8 +144,56 @@ class CategoryController extends Controller
 
 
     public function edit_category($category_id){    
-      //return $category_id;
-      $category_idd = $category_id;
-      return view('admin/edit_category' , compact('category_idd')) ;
+       
+        // Start (learn Hunter Method)
+
+        // $category_info = DB::table('tbl_category')		
+		// ->where('category_id' , $category_id)		
+		// ->first();
+
+		// $category_info = view('admin.edit_category')		
+		// ->with('category_info' , $category_info);		
+		// return view('layouts.newadmin_dashboard_layout')  		
+        // ->with('admin.edit_category', $category_info);
+        
+        // End (learn Hunter Method)
+
+        // Start (Rajat Method)
+        // This Is Another way To get Data From Database // $category_idd = DB::table('tbl_category')-> where('category_id', $category_id)->get(['category_name','category_description']);
+        
+        $category_idd = DB::table('tbl_category')-> where('category_id', $category_id)->get();
+        return view('admin/edit_category' , compact('category_idd')) ;         
+        
+        // End (Rajat Method)
+
+
+    }
+
+
+    public function update_category(Request $request , $category_id){
+            
+        $update_cat = array();
+
+        //$update_cat = DB::table('tbl_category')->where('category_id', $category_id)->update();
+
+        $update_cat['category_name'] = $request-> category_name;
+        $update_cat['category_description'] = $request-> category_description;
+
+        // echo "<pre>";
+        //     print_r($update_cat);
+        // echo "</pre>";
+
+        DB::table('tbl_category')->where('category_id', $category_id)->update($update_cat);
+
+        return Redirect::to('/all-category');
+
+    }
+
+    public function delete_category($category_id){
+
+        $output = DB::table('tbl_category')->where('category_id', $category_id)->delete();
+        Session::get('message' , 'Category Deleted Successfully !');
+        return Redirect::to('/all-category');      
+
     }
 }
